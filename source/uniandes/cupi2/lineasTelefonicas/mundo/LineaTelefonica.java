@@ -12,6 +12,11 @@
  */
 
 package uniandes.cupi2.lineasTelefonicas.mundo;
+import com.opencsv.*;
+
+import java.io.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  * Clase que representa una línea telefónica
@@ -37,6 +42,25 @@ public class LineaTelefonica
      * Costo total de las llamadas
      */
     private double costoLlamadas;
+    /**
+     * Precio llamada local
+     */
+    private double precioLocal;//C.C
+    
+    /**
+      Precio llamada a larga distancia 
+     */
+    private double precioDistancia;//C.C
+    
+    /**
+     * Precio llamada por celular
+     */
+    private double precioCelular;//C.C
+    /**
+     * Lista de precios
+     */
+    private ArrayList<String[]> allData = new ArrayList<String[]>();//C.C
+    
 
     //-----------------------------------------------------------------
     // Métodos
@@ -53,6 +77,7 @@ public class LineaTelefonica
         numeroLlamadas = 0;
         numeroMinutos = 0;
         costoLlamadas = 0;
+        precios_defaul();
     }
 
     /**
@@ -60,11 +85,9 @@ public class LineaTelefonica
      */
     public void reiniciar( )
     {
-        numeroLlamadas = 0;
-        numeroMinutos = 0;
-        costoLlamadas = 0;
+        inicializar();
+        
     }
-
     /**
      * Devuelve el costo total de las llamadas realizadas
      * @return Costo total de las llamadas realizadas
@@ -106,8 +129,8 @@ public class LineaTelefonica
         //Suma los minutos consumidos
         numeroMinutos = numeroMinutos + minutos;
         //
-        //Suma el costo (costo por minuto: 35 pesos)
-        costoLlamadas = costoLlamadas + ( minutos * 35 );
+        //Suma el costo
+        costoLlamadas = costoLlamadas + ( minutos * precioLocal);
     }
 
     /**
@@ -124,8 +147,8 @@ public class LineaTelefonica
         //Suma los minutos consumidos
         numeroMinutos = numeroMinutos + minutos;
         //
-        //Suma el costo (costo por minuto: 380 pesos)
-        costoLlamadas = costoLlamadas + ( minutos * 380 );
+        //Suma el costo
+        costoLlamadas = costoLlamadas + ( minutos * precioDistancia );
     }
 
     /**
@@ -142,8 +165,61 @@ public class LineaTelefonica
         //Suma los minutos consumidos
         numeroMinutos = numeroMinutos + minutos;
         //
-        //Suma el costo (costo por minuto: 999 pesos)
-        costoLlamadas = costoLlamadas + ( minutos * 999 );
+        //Suma el costo
+        costoLlamadas = costoLlamadas + ( minutos * precioCelular );
     }
 
+    public void agregarNuevoPrecioLlamadaLocal(int nuevoPrecio) {
+    	precioLocal = nuevoPrecio;//C.C
+    	escribe();//C.C
+    }
+    public void agregarNuevoPrecioLlamadaDistancia(int nuevoPrecio) {
+    	precioDistancia = nuevoPrecio;//C.C
+    	escribe();//C.C
+    }
+    public void agregarNuevoPrecioLlamadaCelular(int nuevoPrecio) {
+    	precioCelular = nuevoPrecio;//C.C
+    	escribe();//C.C
+    }
+  //Metodo para retornar un array con los precios
+    //C.C
+    public String[] getArray(){
+        String[] data = new String[]{String.valueOf(precioLocal),String.valueOf(precioDistancia),String.valueOf(precioCelular)};
+        return data;
+    } 
+    //Metodo para leer los precios del archivo cvs
+    //C.C
+     public void precios_defaul(){
+      	try {
+              CSVReader lector = new CSVReader(new FileReader("Precios.csv"), ';', '"', 1);
+              String[]nextline;
+              nextline = lector.readNext();
+              precioLocal=Integer.parseInt(nextline[0]);
+              precioDistancia=Integer.parseInt(nextline[1]);
+              precioCelular =Integer.parseInt(nextline[2]);	
+      	}catch (IOException e) {
+              System.out.println(e);
+              JOptionPane.showMessageDialog(null, "No se a podido guardar los datos");
+  	}
+      	
+      }
+     //Metodo para escribir los precios en el archivo cvs
+     //C.C
+      public void escribe() {
+          try{
+              String csv = "Precios.csv";
+              CSVWriter writer = new CSVWriter(new FileWriter(csv),';');
+              String[] header= new String[]{"Local","Distancia","Celular"};
+              writer.writeNext(header);
+              String[] header_1= new String[]{"35","380","999"};
+              writer.writeNext(header_1);
+              String[] precios= getArray();
+              allData.add(precios);
+              writer.writeAll(allData);
+              writer.close();
+          }catch(IOException e) {
+              System.out.println(e);
+              JOptionPane.showMessageDialog(null, "No se a podido guardar los datos");
+          }   
+      }
 }

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry output="classes" kind="src" path="source"/>
-	<classpathentry output="test/classes" kind="src" path="test/source"/>
+	<classpathentry kind="src" output="classes" path="source"/>
+	<classpathentry kind="src" output="test/classes" path="test/source"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="test/lib/junit.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/CarlosJein/Downloads/opencsv-3.10.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
