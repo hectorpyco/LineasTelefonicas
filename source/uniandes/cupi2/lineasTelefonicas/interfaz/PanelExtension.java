@@ -102,7 +102,7 @@ public class PanelExtension extends JPanel implements ActionListener
         add( btnOpcion1 );
 
         //Botón opción 2
-        btnOpcion2 = new JButton( "Opción 2" );
+        btnOpcion2 = new JButton( "Cambiar Precio de Llamada" );
         btnOpcion2.setActionCommand( OPCION_2 );
         btnOpcion2.addActionListener( this );
         add( btnOpcion2 );
@@ -124,7 +124,7 @@ public class PanelExtension extends JPanel implements ActionListener
         }
         else if( OPCION_2.equals( e.getActionCommand( ) ) )
         {
-            principal.reqFuncOpcion2( );
+            principal.reqFuncOpcion2();
         }
         else if( REINICIAR.equals( e.getActionCommand( ) ) )
         {

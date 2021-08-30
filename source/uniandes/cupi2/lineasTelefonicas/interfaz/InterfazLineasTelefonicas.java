@@ -236,11 +236,12 @@ public class InterfazLineasTelefonicas extends JFrame
 
     /**
      * Método para la extensión 2
+     * @param precion 
      */
     public void reqFuncOpcion2( )
     {
-        String resultado = empresa.metodo2( );
-        JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
+    	 Object[] possibilities = { "Linea 1", "Linea 2", "Linea 3" };
+         String tipo = ( String )JOptionPane.showInputDialog( this, "Ingrese la Línea del Cambio:", "Tipo", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Local" );
     }
 
     //-----------------------------------------------------------------

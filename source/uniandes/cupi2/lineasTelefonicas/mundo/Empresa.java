@@ -24,17 +24,17 @@ public class Empresa
     //-----------------------------------------------------------------
 
     /**
-     * Línea telefónica número 1
+     * Línea Telefónica 1
      */
     private LineaTelefonica linea1;
 
     /**
-     * Línea telefónica número 2
+     * Línea Telefónica 2
      */
     private LineaTelefonica linea2;
 
     /**
-     * Línea telefónica número 3
+     * Linea Telefónica 3
      */
     private LineaTelefonica linea3;
 
@@ -236,20 +236,21 @@ public class Empresa
 
     /**
      * Método para la extensión 1
-     * @return Respuesta 1
+     * @param  
      */
-    public String metodo1( )
+    
+    public void metodo1(int precion  )
     {
-        return "Respuesta 1";
     }
 
     /**
      * Método para la extensión2
-     * @return Respuesta 2
+     * @param precion 
      */
-    public String metodo2( )
+    public void metodo2(int precion )
     {
-        return "Respuesta 2";
+		linea1.darCostoLlamadas();
+		linea2.darCostoLlamadas();
+		linea3.darCostoLlamadas();
     }
-
 }

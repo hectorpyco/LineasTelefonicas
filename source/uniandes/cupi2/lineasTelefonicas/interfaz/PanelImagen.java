@@ -27,7 +27,7 @@ public class PanelImagen extends JPanel
 {
 
     //-----------------------------------------------------------------
-    // Atributos de Interfaz
+    // Atributos de Interfaz 
     //-----------------------------------------------------------------
 
     /**
