@@ -230,7 +230,7 @@ public class InterfazLineasTelefonicas extends JFrame
      */
     public void reqFuncOpcion1( )
     {
-        String resultado = empresa.metodo1( );
+        String resultado = empresa.metodo2( );
         JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -241,11 +241,35 @@ public class InterfazLineasTelefonicas extends JFrame
     public void reqFuncOpcion2( )
     {
     	
-    	 Object[] possibilities = { "Linea 1", "Linea 2", "Linea 3" };
-         String tipo = ( String )JOptionPane.showInputDialog( this, "Ingrese la Línea del Cambio:", "Líneas Telefónicas", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Local" );
-         String nprciol =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada Local :" );
-         String nprciod =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada a larga Distancia :" );
-         String nprcioc =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada Celular:" );
+    	   {
+    	    	String precio = JOptionPane.showInputDialog( this, "Ingrese um nuevo precio para la llamada: " );
+    			
+    	    	try { 
+    	    		if( precio != null )
+    	    		{
+    	    			int pre = Integer.parseInt( precio );
+    	    			if( pre <= 0 )
+    	    			{
+    	    				JOptionPane.showMessageDialog( this, "El precio debe ser mayor a cero", "Error", JOptionPane.ERROR_MESSAGE );
+    	    				return;
+    	    			}
+    	    			Object[] possibilities1 = { "Linea 1", "Linea 2", "Linea 3" };
+    	    	        String tipoLinea = ( String )JOptionPane.showInputDialog( this, "Ingrese la Línea del Cambio:", "Líneas Telefónicas", JOptionPane.QUESTION_MESSAGE, null, possibilities1, "Linea1" );
+    	    			Object[] possibilities2 = { "Local", "Larga distancia", "Celular" };
+    	    			String tipoLlamada = ( String )JOptionPane.showInputDialog( this, "Tipo de llamada:", "Llamada", JOptionPane.QUESTION_MESSAGE, null, possibilities2, "Local" );
+    	    			if( tipoLinea != null && tipoLlamada != null )
+    	    			{
+    	    				empresa.metodo1(tipoLinea, tipoLlamada);
+    	    			}
+
+    	    			actualizar( );
+    	    		}
+    	    	}
+    	    	catch( NumberFormatException e )
+    	    	{
+    	    		JOptionPane.showMessageDialog( this, "El número de minutos es inválido", "Error", JOptionPane.ERROR_MESSAGE );
+    	    	}
+    	    };
     }
 
     //-----------------------------------------------------------------

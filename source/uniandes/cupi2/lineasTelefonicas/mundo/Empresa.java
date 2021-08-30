@@ -239,17 +239,18 @@ public class Empresa
      * @param  
      */
     
-    public String metodo1()
+    public String metodo1(String linea, String llamada)
     {
-    	return "Respuesta 1";
+    	return "Opcion 1";
+    
     }
 
     /**
      * Método para la extensión2
      * @param precion 
      */
-    public void metodo2()
+    public String metodo2()
     {
-		
+		return "Error";
     }
 }
