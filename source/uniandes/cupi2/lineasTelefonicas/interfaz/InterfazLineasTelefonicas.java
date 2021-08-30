@@ -240,8 +240,10 @@ public class InterfazLineasTelefonicas extends JFrame
      */
     public void reqFuncOpcion2( )
     {
+    	
     	 Object[] possibilities = { "Linea 1", "Linea 2", "Linea 3" };
-         String tipo = ( String )JOptionPane.showInputDialog( this, "Ingrese la Línea del Cambio:", "Tipo", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Local" );
+         String tipo = ( String )JOptionPane.showInputDialog( this, "Ingrese la Línea del Cambio:", "Líneas Telefónicas", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Local" );
+         String nprcio =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada :" );
     }
 
     //-----------------------------------------------------------------
