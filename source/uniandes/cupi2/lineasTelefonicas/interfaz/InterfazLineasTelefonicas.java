@@ -243,7 +243,9 @@ public class InterfazLineasTelefonicas extends JFrame
     	
     	 Object[] possibilities = { "Linea 1", "Linea 2", "Linea 3" };
          String tipo = ( String )JOptionPane.showInputDialog( this, "Ingrese la Línea del Cambio:", "Líneas Telefónicas", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Local" );
-         String nprcio =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada :" );
+         String nprciol =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada Local :" );
+         String nprciod =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada a larga Distancia :" );
+         String nprcioc =  JOptionPane.showInputDialog( this, "Nuevo costo de llamada Celular:" );
     }
 
     //-----------------------------------------------------------------
