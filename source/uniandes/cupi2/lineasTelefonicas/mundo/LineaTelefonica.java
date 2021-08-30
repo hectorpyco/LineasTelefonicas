@@ -222,4 +222,5 @@ public class LineaTelefonica
               JOptionPane.showMessageDialog(null, "No se a podido guardar los datos");
           }   
       }
+      
 }

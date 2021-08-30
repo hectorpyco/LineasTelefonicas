@@ -96,7 +96,7 @@ public class PanelExtension extends JPanel implements ActionListener
         add( btnReiniciar );
 
         //Botón opción 1
-        btnOpcion1 = new JButton( "Opción 1" );
+        btnOpcion1 = new JButton( "Cambiar precio llamada" );
         btnOpcion1.setActionCommand( OPCION_1 );
         btnOpcion1.addActionListener( this );
         add( btnOpcion1 );

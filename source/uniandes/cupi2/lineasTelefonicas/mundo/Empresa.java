@@ -238,9 +238,44 @@ public class Empresa
      * Método para la extensión 1
      * @return Respuesta 1
      */
-    public String metodo1( )
+    public void  metodo1(String linea, String Llamada, int precio )
     {
-        return "Respuesta 1";
+     if(linea.equals("Linea 1") && Llamada.equals("Local")){
+    	 linea1.agregarNuevoPrecioLlamadaLocal(precio);
+     }else {
+    	 if(linea.equals("Linea 2") && Llamada.equals("Local")){
+        	 linea2.agregarNuevoPrecioLlamadaLocal(precio);
+         }else {
+        	 if(linea.equals("Linea 3") && Llamada.equals("Local")){
+            	 linea3.agregarNuevoPrecioLlamadaLocal(precio);
+             }else {
+            	 if(linea.equals("Linea 1") && Llamada.equals("Larga distancia")){
+                	 linea1.agregarNuevoPrecioLlamadaDistancia(precio);
+                 }else {
+                	 if(linea.equals("Linea 2") && Llamada.equals("Larga distancia")){
+                    	 linea2.agregarNuevoPrecioLlamadaDistancia(precio);
+                     }else {
+                    	 if(linea.equals("Linea 3") && Llamada.equals("Larga distancia")){
+                        	 linea3.agregarNuevoPrecioLlamadaDistancia(precio);
+                         }else {
+                        	 if(linea.equals("Linea 1") && Llamada.equals("Celular")){
+                            	 linea1.agregarNuevoPrecioLlamadaCelular(precio);
+                             }else {
+                            	 if(linea.equals("Linea 2") && Llamada.equals("Celular")){
+                                	 linea2.agregarNuevoPrecioLlamadaCelular(precio);
+                                 }else {
+                                	 if(linea.equals("Linea 3") && Llamada.equals("Celular")){
+                                    	 linea3.agregarNuevoPrecioLlamadaCelular(precio);
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+     }
+    	 
     }
 
     /**
@@ -250,6 +285,11 @@ public class Empresa
     public String metodo2( )
     {
         return "Respuesta 2";
+    }
+    
+    public int agregarPrecio(int precio) {
+    	
+    	return precio;
     }
 
 }
